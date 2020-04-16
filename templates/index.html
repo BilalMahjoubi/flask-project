@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TODO LIST</title>
+</head>
+<body>
+    <h1>A FAIRE</h1>
+    <form action="/add" method="POST">
+        <input  type="text" name="todoitem"><input type="submit">
+    </form>
+    <div>
+            <ul>
+                {%for todo in complet %}
+                
+                <li>  {{todo.texte}} <a href="{{url_for('update', id=todo.id) }}">Completer</a></li>
+                
+                {%endfor %}
+            </ul>
+            <div>
+                    <h1>FINI</h1>
+
+                    <ul>
+                        {%for todo in incomplet %}
+                        
+                        <li>  {{todo.texte}}</li>
+                        
+                        {%endfor %}
+                    </ul>
+    </div>
+    
+</body>
+</html>
